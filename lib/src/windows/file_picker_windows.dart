@@ -312,6 +312,9 @@ class FilePickerWindows extends FilePicker {
     openFileNameW.ref.flags =
         ofnExplorer | ofnFileMustExist | ofnHideReadOnly | ofnNoChangeDir;
 
+    // My edit to inheritly assume its json
+    openFileNameW.ref.lpstrDefExt = 'json'.toNativeUtf16();
+
     if (args.lockParentWindow) {
       openFileNameW.ref.hwndOwner = _getWindowHandle();
     }
